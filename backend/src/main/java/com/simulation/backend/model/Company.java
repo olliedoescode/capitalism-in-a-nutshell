@@ -16,6 +16,15 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 120)
+    private String name;
+
+    @Column(nullable = false)
+    private boolean isPlayer;
+
+    @Column(length = 120)
+    private String specialty;
+
     @Column(nullable = false, precision = 19, scale = 4)
     private BigDecimal cashBalance = BigDecimal.ZERO;
 
@@ -26,8 +35,48 @@ public class Company {
         this.cashBalance = cashBalance;
     }
 
+    public Company(String name, BigDecimal cashBalance) {
+        this.name = name;
+        this.cashBalance = cashBalance;
+    }
+
+    public Company(
+            String name,
+            boolean isPlayer,
+            BigDecimal cashBalance,
+            String specialty) {
+        this.name = name;
+        this.isPlayer = isPlayer;
+        this.cashBalance = cashBalance;
+        this.specialty = specialty;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isPlayer() {
+        return isPlayer;
+    }
+
+    public void setPlayer(boolean player) {
+        isPlayer = player;
+    }
+
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
     }
 
     public BigDecimal getCashBalance() {
