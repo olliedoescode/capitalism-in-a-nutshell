@@ -1,0 +1,12 @@
+target/
+venv/
+.venv/
+.env
+__pycache__/
+*.py[cod]
+
+.idea/
+.vscode/
+*.iml
+
+.DS_Store
